@@ -1,0 +1,154 @@
+body {
+  // font-family: verdana, arial, helvetica, sans-serif;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	margin: 5px;
+  // background-color: #ffba66;
+}
+
+h1 {
+	font-size: 457%; 
+	// font-weight: bold;
+}
+
+h2 {
+	font-size: 300%; 
+	// font-weight: bold;
+	vertical-align: text-top;
+}
+
+h3 {
+	font-size: 200%; 
+	// font-weight: bold;
+}
+
+hr {
+	height: 2px;
+	noshade: true;
+	color: #900;
+	background-color: #900;
+}
+
+.indextext {
+	color: #900;
+}
+
+#custom-doc {
+	// border-top: 20px #FF9900 solid; 
+	// border-bottom: 3px #FF9900 solid; 
+	margin: 0 auto;
+	text-align:left; /* leave unchanged */
+	width:46.15em; /* non-IE */
+	*width:45.00em; /* IE */
+	min-width:600px; /* optional but recommended */
+
+	// margin: 0 auto; 
+	// display:table; 
+	// padding-bottom:5px;
+	// min-width: 350px;
+}
+
+#hd {
+	padding-top: 5px;
+	color: #666;
+//	border-bottom: 30px #FF9900 solid; 
+}
+
+#maintext {
+	color: #737373;
+
+	// border: 3px #FF9900 solid; 
+	/* Do rounding (native in Firefox and Safari, CC in IE) */
+	// -webkit-border-radius: 15px;
+	// -moz-border-radius: 15px;
+	// CCborderRadius: 15px;
+}
+
+#chartarea {
+	margin-top: 20px;
+	margin-bottom: 10px;
+}
+
+#charttext {
+	color: #666;
+}
+
+#answer a {
+	color: #900;
+}
+
+#panels {
+	color: #b2b2b2;
+}
+
+#panels #left {
+	text-align: center;
+  background-color: #f9d8b0;
+
+	// border: 2px #FF9900 solid; 
+	border: 2px #f9d8b0 solid; 
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	CCborderRadius: 5px;
+}
+
+#panels #right {
+	text-align: center;
+
+  background-color: #b0e1f9;
+  // border: 2px solid #49bbf2;
+  border: 2px solid #b0e1f9;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	CCborderRadius: 5px;
+}
+
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+a { 
+	// color: #000; 
+	text-decoration: none;
+}
+
+a:visited { color: #666; }
+a:hover { color: #fff; background-color:#000; }
+
+.fieldWithErrors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+#errorExplanation {
+  width: 400px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+#errorExplanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  background-color: #c00;
+  color: #fff;
+}
+
+#errorExplanation p {
+  color: #333;
+  margin-bottom: 0;
+  padding: 5px;
+}
+
+#errorExplanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+

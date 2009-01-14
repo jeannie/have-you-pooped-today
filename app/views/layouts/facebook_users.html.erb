@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://www.facebook.com/2008/fbml">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>My PPP : <%= controller.action_name %></title>
+
+	<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.6.0/build/reset-fonts-grids/reset-fonts-grids.css"> 
+
+  <%= stylesheet_link_tag 'ppp' %>
+	<%= javascript_include_tag :defaults, "swfobject", "curvycorners" %>
+
+</head>
+<body>
+
+<script src="http://static.ak.connect.facebook.com/js/api_lib/v0.4/FeatureLoader.js.php" type="text/javascript"></script>
+
+<div id="custom-doc">
+
+	<%= yield  %>
+
+<script type="text/javascript">
+// FB.init("ab41591b73191f8c873c9b3c993f54f1", "http://myppp.good-4-u.org/xd_receiver.htm", {"ifUserConnected":"/fbconnect"});
+
+FB.init("ab41591b73191f8c873c9b3c993f54f1", "http://myppp.good-4-u.org/xd_receiver.htm");
+</script>
+
+<script type="text/javascript">
+
+function facebook_onlogin() { 
+	// alert("hello world");
+	// var user_box = document.getElementById("user"); 
+	// add in some XFBML. note that we set useyou=false so it doesn't display "you" 
+	// user_box.innerHTML = "<span>" 
+		// + "<fb:profile-pic uid=loggedinuser facebook-logo=true></fb:profile-pic>" 
+		// + "Welcome, <fb:name uid=loggedinuser useyou=false></fb:name>. You are signed in with your Facebook account." 
+		// + "</span>"; 
+	// because this is XFBML, we need to tell Facebook to re-process the document
+	// FB.XFBML.Host.parseDomTree(); 
+	window.location = "http://myppp.good-4-u.org/fbconnect/connect";
+}
+</script>
+
+</div>
+
+</body>
+</html>
+

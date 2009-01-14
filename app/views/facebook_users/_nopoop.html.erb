@@ -1,0 +1,18 @@
+<h1>have<br />
+you<br />
+pooped<br />
+today<br />
+?</h1>
+
+<div id="answer">
+	<h1><%= link_to "yes!", update_poop_log_facebook_user_path(@facebook_user) %></h1>
+</div>
+
+<div id="panels"> 
+	<% if !@curPppIndex.empty? %>
+		<h2><%= link_to "your ppp index : " + sprintf("%0.2f", @curPppIndex.last.ppp_index), chart_facebook_user_path %></h2>
+	<% end %>
+	<hr> </hr>
+	<h2><%= link_to "not yet...", chart_facebook_user_path(@facebook_user) %></h2>
+</div>
+

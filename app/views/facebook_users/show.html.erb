@@ -1,0 +1,33 @@
+<div id="hd">
+	<h1>
+	<% if @indexUpdated %>
+	yay
+	<% else %>
+	hello 
+	<% end %>
+	<fb:name uid=loggedinuser firstnameonly=true useyou="false"></fb:name>!
+	</h1>
+</div>
+
+<div id="bd">
+	<div id="maintext">
+		<% if @indexUpdated %>
+			<%= render :partial => "good4u" %> 
+		<% else %>
+			<%= render :partial => "nopoop" %>
+		<% end %>
+	</div>
+
+	<p> </p>
+	<% if !@curPppIndex.empty? %>
+		Poop count: <%= @curPppIndex.last.poop_count %>
+		PPP index: <%= @curPppIndex.last.ppp_index %>
+
+		<% for pppIndex in @curPppIndex %>
+			<p><%= pppIndex.created_at.to_date %> <%= pppIndex.ppp_index %> <%= pppIndex.poop_count %></p>
+		<% end %>
+	<% end %>
+
+	</div>
+
+</div>

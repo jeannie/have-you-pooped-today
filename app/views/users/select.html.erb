@@ -1,0 +1,40 @@
+<script type="text/javascript">
+
+function hello( )
+{	
+	window.location.href = "/";	
+}
+
+</script>
+
+<p>
+  <b>Name:</b>
+  <%=h @user.name %>
+</p>
+
+<% if !@curPppIndex.empty? %>
+<h2>Poop count: <%= @curPppIndex.last.poop_count %></h2>
+<h2>PPP index: <%= @curPppIndex.last.ppp_index %></h2>
+
+<table>
+<% for pppIndex in @curPppIndex %>
+  <tr>
+    <td><%= pppIndex.created_at.to_date %></td>
+    <td><%= pppIndex.ppp_index %></td>
+    <td><%= pppIndex.poop_count %></td>
+  </tr>
+<% end %>
+</table>
+<% end %>
+
+<h2>Have you pooped today?</h2>
+
+<%= link_to "Yes", update_poop_log_user_path(@user) %> 
+
+<p>
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>
+
+<p>
+<br />
+<%= @graph %>

@@ -1,0 +1,83 @@
+<div id="hd">
+	<h1>bravo <fb:name uid=loggedinuser firstnameonly=true useyou=false></fb:name>!</h1>
+	<h2>today's ppp index : <%= link_to sprintf("%0.2f", @curPppIndex.last.ppp_index), chart_facebook_user_path %></h2>
+	<br />
+	<h3>your personal poop performance chart</h3>
+</div>
+
+<div id="bd">
+	<%= @chart.js_open_flash_chart_object("chartarea", 600, 200) %>
+
+	<div id="charttext"> 
+		<h3>your ppp index is going down.</h3>
+		<h3>don't forget to poop.</h3>
+	</div>
+
+	<div id="formtext" style="display:none">
+		<% form_tag do %>
+			<h3><%= label_tag(:poopcount, "poop count form") %></h3>
+		<% end %>
+	</div> 
+
+	</div>
+
+	<hr> </hr>
+
+	<div id="panels"> 
+		<% if @indexUpdated %>
+			<h3><%= link_to "pooped more today?", update_poop_log_facebook_user_path(@facebook_user) %></h3>
+		<% else %>
+			<h3><%= link_to "have you pooped today?", update_poop_log_facebook_user_path(@facebook_user) %></h3>
+		<% end %>
+	</div>
+
+			<% if !@curPppIndex.empty? %>
+				Poop count: <%= @curPppIndex.last.poop_count %>
+				PPP index: <%= @curPppIndex.last.ppp_index %>
+
+				<% for pppIndex in @curPppIndex %>
+					<p><%= pppIndex.created_at.to_date %> <%= pppIndex.ppp_index %> <%= pppIndex.poop_count %></p>
+				<% end %>
+			<% end %>
+	<p>
+	<%= link_to 'Back', facebook_users_path %>
+	</p>
+
+<script type="text/javascript">
+
+function edit_poop_count (index) 
+{
+  var formarea = document.getElementById("charttext");
+	pppIndex = data['elements'][1]['values'][index];
+	dateLabel = data['x_axis']['labels']['labels'][index]['text'];
+	curPoopCount = data['elements'][0]['values'][index];
+
+	formarea.innerHTML = '<h3>' + dateLabel + ' ppp index : ' + pppIndex + '</h3>';
+	formarea.innerHTML += '<h3>poop count : ' + curPoopCount + '</h3>';
+
+	formarea.style.visibility = 'hidden';
+	// document.getElementById("formtext").style.visibility = 'visible';	
+	$('charttext').toggle();
+	$('formtext').toggle();
+  FB.XFBML.Host.parseDomTree();
+}
+
+function hello (index) 
+{
+	// make call to DB w/ the index and user to get the ppp index and poop count
+	
+  var highlight_box = document.getElementById("charttext");
+  // add in some XFBML. note that we set useyou=false so it doesn't display "you"
+	pppIndex = data['elements'][1]['values'][index];
+	// xvalue = data['x_axis'][0]['labels'][0]['labels'][index]['text'];
+	datelabel = data['x_axis']['labels']['labels'][index]['text'];
+	poopCount = data['elements'][0]['values'][index];
+  highlight_box.innerHTML = '<h3>' + 'clicked index #: ' + index + '</h3>' + '<h3>' + 'ppp index: ' + pppIndex + '</h3>' +  '<h3>' + 'date label: ' + datelabel + '</h3>' + '<h3>poop count: ' + poopCount + '</h3>';;
+
+  // because this is XFBML, we need to tell Facebook to re-process the document
+  FB.XFBML.Host.parseDomTree();
+}
+
+</script>
+
+</div>

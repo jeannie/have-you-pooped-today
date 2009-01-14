@@ -1,0 +1,27 @@
+<p>
+<script type="text/javascript">
+      swfobject.embedSWF("/open-flash-chart.swf", "displaychart", "500", "200", "9.0.0");
+      </script>
+          <script type="text/javascript">
+    function ofc_ready() {
+		alert("hello world");
+    }
+    function open_flash_chart_data() {
+			alert("read data");
+			alert(Object.toJSON(data));
+      return Object.toJSON(data);
+    }
+    function findSWF(movieName) {
+      if (navigator.appName.indexOf("Microsoft")!= -1) {
+        return window[movieName];
+        } else {
+          return document[movieName];
+        }
+      }
+      var data = {"y_axis": {"steps": 0.5, "max": 5, "min": 0}, "y_legend": {"text": "", "style": "{font-size: 20px; color: #770077}"}, "x_legend": {"text": "", "style": "{font-size: 20px; color: #778877}"}, "elements": [{"text": "Line Dot", "type": "line_dot", "dot-size": 5, "colour": "#DFC329", "values": [1.1, 2.1, 3.5, 4.1, 2.15, 0.15], "font-size": 10, "width": 4}]};
+      </script>
+
+      <div id="displaychart"></div>
+
+</p>
+

@@ -1,0 +1,7 @@
+<div id="user"></div>
+<h1>Fbconnect</h1>
+<% if @first_name %>
+<h2><%= @first_name %></h2>
+<h2><%= @fb_uid %></h2>
+<% end %>
+<fb:login-button onlogin="facebook_onlogin();"></fb:login-button>

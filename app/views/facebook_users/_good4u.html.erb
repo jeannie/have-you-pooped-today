@@ -1,0 +1,13 @@
+<h1>good<br />
+4<br />
+u<br />
+!</h1>
+
+<div id="panels"> 
+	<% if !@curPppIndex.empty? %>
+		<h2><%= link_to "your ppp index : " + sprintf("%0.2f", @curPppIndex.last.ppp_index), chart_facebook_user_path %></h2>
+	<% end %>
+	<hr> </hr>
+	<h2><%= link_to "log more poop", update_poop_log_facebook_user_path(@facebook_user) %></h2>
+</div>
+

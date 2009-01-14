@@ -1,0 +1,40 @@
+<center><h1>Welcome to PPP</h1><center>
+
+<div id="user"></div>
+<% if @first_name %>
+<h2><%= @first_name %></h2>
+<h2><%= @fb_uid %></h2>
+<% end %>
+
+<!--
+<% if @caught_exception && @caught_exception == "yes" %>
+<h3>Caught exception!</h3>
+<% end %>
+
+<h4 onclick="facebook_user_connected()">check user connect</h4>
+-->
+
+<p>
+<center><fb:login-button onlogin="facebook_onlogin();"></fb:login-button></center>
+</p>
+
+<script type="text/javascript">
+
+function display_connect() {
+	alert("hello I'm connected!");
+}
+
+function facebook_user_connected() { 
+	alert("hello?");
+
+	// var user_box = document.getElementById("user"); 
+	// add in some XFBML. note that we set useyou=false so it doesn't display "you" 
+	// user_box.innerHTML = "<span>" 
+		// + "<fb:profile-pic uid=loggedinuser facebook-logo=true></fb:profile-pic>" 
+		// + "Welcome, <fb:name uid=loggedinuser useyou=false></fb:name>. You are signed in with your Facebook account." 
+		// + "</span>"; 
+	// because this is XFBML, we need to tell Facebook to re-process the document
+	// FB.XFBML.Host.parseDomTree(); 
+}
+</script>
+
